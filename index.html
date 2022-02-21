@@ -1,0 +1,67 @@
+<html>
+	<head>
+		<title>indice[ ] - SyGe</title>
+
+		<link rel="stylesheet" type="text/css" href="styles.css">
+		<link href="https://fonts.googleapis.com/css?family=Orbitron&display=swap" rel="stylesheet">
+	</head>
+	<body onload="initSystem()">
+
+		<div class="optionsContainer">
+			<input type="button" class="button" value=" | | " id="pauseButton" onclick="pauseAnimation()">
+			<input type="button" class="button" value="Next System" id="nextSystemButton" onclick="nextSystem()">
+			<input type="button" class="button" value="Hide Cursor" id="hideCursorButton" onclick="hideCursor()">
+			Brightness:
+			<input type="button" class="button" value="+" id="increaseBrightnessButton" onclick="controlBrightness('+')">
+			<input type="button" class="button" value="-" id="decreaseBrightnessButton" onclick="controlBrightness('-')">
+			<input type="button" class="button" value="Reset" id="resetBrightnessButton" onclick="controlBrightness('0')">
+		</div>
+
+		<canvas id="textCanvas" width="0" height="0" onmousemove="updateMousePos(event)" onmousedown="getClickedBody(event)"></canvas>
+
+		<div id="blackOverlay"></div>
+
+		<div id="starInformation">
+			<table>
+				<tr>
+					<th id="starName">-</th>
+			</table>
+		</div>
+
+		<div id="bodyInformation">
+			<table>
+				<tr>
+					<th id="bodyName">-</th>
+				</tr>
+				<tr>
+					<td>Orbit</td>
+					<td id="bodyOrbit">-</td>
+				</tr>
+				<tr>
+					<td>Atmosphere</td>
+					<td id="bodyAtmosphere">-</td>
+				</tr>
+				<tr>
+					<td>Species</td>
+					<td id="bodySpecies">-</td>
+				</tr>
+				<!--tr>
+					<td>Population</td>
+					<td id="planetPopulation">-</td>
+				</tr-->
+			</table>
+		</div>
+
+		<canvas id="lightMaskCanvas" width="0" height="0"></canvas>
+		<canvas id="planetCanvas" width="0" height="0"></canvas>
+		<canvas id="starCanvas" width="0" height="0"></canvas>
+		<canvas id="backgroundCanvas" width="0" height="0"></canvas>
+
+		<script src="setup.js"></script>
+		<script src="physics.js"></script>
+		<script src="lighting.js"></script>
+		<script src="animation.js"></script>
+		<script src="nameGenerator.js"></script>
+		<script src="systemGenerator.js"></script>
+	</body>
+</html>
